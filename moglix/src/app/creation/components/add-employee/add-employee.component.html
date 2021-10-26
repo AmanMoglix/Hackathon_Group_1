@@ -1,0 +1,59 @@
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" id="icon" alt="User Icon" class="img-fluid" />
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="dataForm">
+        <input type="text"  class="fadeIn second" formControlName="firstName" 
+        [ngClass]="{'form-control form-control-lg':true,'is-invalid':error.firstname}"
+
+        placeholder="employee first name">
+        <div class="invalid-feedback d-block">{{error.firstName}}</div>
+        <input type="text"  class="fadeIn second" formControlName="lastName" 
+        [ngClass]="{'form-control form-control-lg':true,'is-invalid':error.lastName}"
+
+        placeholder="employee last name">
+        <div class="invalid-feedback d-block">{{error.lastName}}</div>
+        <input 
+        type="text" id="email" class="fadeIn third" formControlName="username"
+        [ngClass]="{'form-control form-control-lg':true,'is-invalid':error.username}"
+        placeholder="user email">
+        <div class="invalid-feedback d-block" *ngIf="showMessage">
+          {{message}}</div> 
+       
+        <select class="abc" formControlName="role">
+          <option [ngValue]="null"  selected="selected">--select role--</option>
+          <option *ngFor="let role of allRoles" [ngValue]="role.authority">
+           {{ role.authority }}
+          </option>
+        </select>
+
+        <input type="text"  class="fadeIn third" formControlName="password" 
+        [ngClass]="{'form-control form-control-lg':true,'is-invalid':error.password}"
+
+        placeholder="password">
+        <div class="invalid-feedback d-block">{{error.password}}</div>
+
+        <!-- <input type="text"  class="fadeIn third" formControlName="password2" 
+        [ngClass]="{'form-control form-control-lg':true,'is-invalid':error.password2}"
+
+        placeholder="password">
+        <div class="invalid-feedback d-block"> {{error.password2}}</div> -->
+
+        <input type="submit" (click)="signUp()"class="fadeIn fourth" value="Add Employee">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" [routerLink]="['/creation']" [queryParams]="{roleId:11}">Add role?</a>
+      </div>
+  
+    </div>
+  </div>
+

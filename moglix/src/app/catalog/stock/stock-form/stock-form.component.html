@@ -1,0 +1,148 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 m-auto">
+       <form [formGroup]="dataForm">
+         <!--row start here-->
+         <div class="row">
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">Select txn Type</label>
+            <select class="form-control" formControlName="type">
+                <option [ngValue]="null" disabled>select txn type</option>
+                <option *ngFor="let type of allTxn" [ngValue]="type.prId">
+                 {{ type.prName }}
+                </option>
+              </select>
+              
+            <!-- <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required> -->
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01">Bill No</label>
+        <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" formControlName="billNo"
+        value="Mark" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Remarks</label>
+        <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" formControlName="remarks"
+         value="Otto" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+         </div>
+                  <!--row end here-->
+
+                  <!--row start here-->
+
+          <div class="row">
+        
+            <div class="col-md-4 mb-3">
+                <label for="validationServer02">Select Status</label>
+               <select class="form-control" formControlName="status">
+                <option [ngValue]="null" disabled>select txn type</option>
+                <option *ngFor="let status of allStatus" [ngValue]="status.statusId">
+                  {{status.statusName}}</option>
+                
+              </select>
+               <div class="valid-feedback">
+              Looks good!
+               </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationServer01">Bill Date</label>
+                <input type="date" class="form-control is-valid" id="validationServer01" placeholder="First name" formControlName="billDate"
+                value="Mark" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationServer01">Total Taxable Amount</label>
+                <input type="number" class="form-control is-valid" id="validationServer01" placeholder="total taxable amount" formControlName="totalTaxableAmount"
+                value="Mark" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+            
+              <div class="col-md-4 mb-3">
+                <label for="validationServer01">Grand Total</label>
+                <input type="number" class="form-control is-valid" id="validationServer01" placeholder="grand Total" formControlName="grandTotal"
+                value="Mark" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              
+          </div>
+         <!--row end here-->
+
+         <!--row start here-->
+         <div class="row">
+          <div class="col">
+             <!--child table start here--> 
+             <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th ><span>Product</span></th>
+                  <th ><span>Quantity</span></th>
+                  <th ><span>Product Price</span></th>
+                  <th ><span>Total Price</span></th>
+                  <th ><span>Status</span></th>
+                  <th >Actions</th>
+                  <th></th>
+                </tr>
+              </thead>
+            <tbody formArrayName="txnDetailsCO">         
+     <tr *ngFor="let skill of ft.controls; let i=index" [formGroupName]="i">                            
+                      <td>
+                          <select  formControlName="productId">
+                            <option>Select Product</option>
+                            <option *ngFor="let status of catalog" [ngValue]="status.id">
+                              {{status.productName}}</option>
+                          </select>
+                        </td><td>
+                        <input type="number" formControlName="quantity">
+                      </td><td>
+                        <input type="number" formControlName="productPrice">
+                      </td><td>
+                        <input type="number" formControlName="totalPrice">
+                      </td><td>
+                        <select  formControlName="status">
+                          <option>select-status</option>
+                          <option *ngFor="let status of allStatus" [ngValue]="status.statusId">
+                            {{status.statusName}}</option>
+                          
+                        </select>
+                        </td>
+                        <input type="hidden" formControlName="id">
+
+                        <!-- <button (click)="removeEmployee(i)" ><mat-icon >clear</mat-icon></button> -->
+                        <td style="width:10%">
+                        <a type="button" (click)="addChild()"><i class="fas fa-plus text-success mr-1"></i></a>  
+                        <a type="button" (click)="removeChild(i)"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>          
+                      </td>
+    </tr>
+              </tbody>
+            </table>
+              <!--child table start here-->               
+          </div>
+        </div>
+       <!--row end here-->
+
+                  <input type="hidden" formControlName="id">
+                  <button class="btn btn-primary" (click)="onSubmit()"
+                      [disabled]="update"  type="submit">Add catalog</button>
+                    <button class="btn btn-primary" (click)="onSubmit()"
+                   [disabled]="!update"  type="submit">update catalog</button>
+        </form>
+    </div>
+ </div>
+</div>

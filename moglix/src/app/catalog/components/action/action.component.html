@@ -1,0 +1,21 @@
+<div class="dashboard">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <app-log-out></app-log-out>
+          <h1 class="display-4">Admin Dashboard</h1>
+          <a class="lead text-muted" routerLink="/dashboard/admin">Back To Home</a>
+         
+          <div *ngIf="formData">
+            <app-catalog-form></app-catalog-form>
+
+          </div>
+          <div *ngIf="tableData">
+            <app-catalog-list></app-catalog-list>
+
+          </div>
+    </div>
+    </div>
+    </div>
+    </div>
+

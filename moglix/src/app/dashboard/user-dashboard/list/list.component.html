@@ -1,0 +1,22 @@
+<div class="products">
+    <p *ngFor="let alert of alerts">
+      <ngb-alert style="width: 300px; color: darkblue; text-align: center;" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+     </p>
+     <div class="product" *ngFor="let item of products">
+        <mat-card>
+          <p>{{item.catalog.productName}}</p>
+          
+          <p>₹<strong>{{item.productPrice}}</strong></p>
+          <img src="">
+          <h2>Description</h2>
+          <p><strong>{{item.catalog.productDescription}}</strong></p>
+          <!-- <button type="button" (click)="RemoveQuantity()"><i class="fa fa-minus"></i></button>
+          <input type="text" [value]="quantity">
+          <button type="button" (click)="AddQuantity()"><i class="fa fa-plus"></i></button> -->
+
+          <p><strong>Supplier Name :<p>{{item.supplier.firstName}}</p></strong></p>
+          
+             <button type="button" (click)="addToCart(item)">add To Cart</button>
+        </mat-card>
+     </div>
+  </div>

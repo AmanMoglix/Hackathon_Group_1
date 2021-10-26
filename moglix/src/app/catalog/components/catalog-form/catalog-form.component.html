@@ -1,0 +1,63 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 m-auto">
+  <form [formGroup]="dataForm">
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">Select category</label>
+            <select class="form-control" formControlName="categoryId">
+                <option [ngValue]="null" disabled>select category</option>
+                <option *ngFor="let categoryId of allCategory" [ngValue]="categoryId.prId">
+                 {{ categoryId.prName }}
+                </option>
+              </select>
+              
+              
+            <!-- <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required> -->
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01">Product name</label>
+        <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" formControlName="productName"
+        value="Mark" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      
+      
+    </div>
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="validationServer02">Product description</label>
+            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" formControlName="productDescription"
+             value="Otto" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+        <div class="col-md-4 mb-3">
+            <label for="validationServer01">Product image</label>
+            <!-- <input type="file" class="form-control is-valid" id="validationServer01" required (change)="uploadFileChange($event)" 
+            value="Mark" required> -->
+            
+            <input type="text" class="form-control is-valid" id="validationServer01" required  formControlName="productImage"
+            value="Mark" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          
+    </div>
+    <input type="hidden" formControlName="id">
+    <button class="btn btn-primary" (click)="onSubmit()"
+    [disabled]="update"  type="submit">Add catalog</button>
+    <button class="btn btn-primary" (click)="onSubmit()"
+    [disabled]="!update"  type="submit">update catalog</button>
+  </form>
+</div>
+</div>
+</div>

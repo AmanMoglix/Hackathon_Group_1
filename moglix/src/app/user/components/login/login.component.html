@@ -1,0 +1,32 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="dataForm">
+        <input type="text"  class="fadeIn second" formControlName="username" placeholder="user name">
+        <div class="invalid-feedback d-block">{{error.email}}</div>
+        <input type="text" class="fadeIn third" formControlName="password" 
+        [ngClass]="{'form-control form-control-lg':true,'is-invalid':error.username}"
+        placeholder="user password">
+        <div class="invalid-feedback d-block">{{error.password}}</div>
+  
+        <input type="submit"  (click)="logIn()"class="fadeIn fourth" 
+        [ngClass]="{'form-control formControl-lg':true,'is-invalid':error.password}"
+        value="Log In">
+      </form>
+      <span>
+        <a class="underlineHover" [routerLink]="['/user/signup']">forgot password?</a>
+      </span>
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" [routerLink]="['/user/signup']">Sign up?</a>
+      </div>
+  
+    </div>
+  </div>

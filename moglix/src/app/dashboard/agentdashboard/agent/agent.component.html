@@ -1,0 +1,22 @@
+
+<div class="dashboard">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <app-log-out></app-log-out>
+
+          <h1 class="display-4">Supplier Dashboard</h1>
+          <p class="lead text-muted">Welcome {{userName}}</p>  
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <app-agent-action></app-agent-action>
+        </div>
+        <div class="col-md-12" *ngIf="show">
+          <app-assigned-order></app-assigned-order>
+        </div>
+      </div>
+    </div>
+</div>

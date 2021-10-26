@@ -1,0 +1,13 @@
+ <!-- Dashboard Actions -->
+ <div class="btn-group mb-4" role="group">
+    <a [routerLink]="['/dashboard/user/profile']" class="btn btn-light">
+      <i class="fas fa-user-circle text-info mr-1"></i> Edit Profile</a>
+    <a  class="btn btn-light" [routerLink]="['/catalog/stock']" 
+    [queryParams]="{ formId: 77 }"
+    skipLocationChange:true >
+      <i class="fab fa-black-tie text-info mr-1"></i>
+      Add Pricing</a>
+    <a  class="btn btn-light" [routerLink]="['/dashboard/oms/orders']"  [queryParams]="{ datatableId: 99 }"skipLocationChange:true >
+      <i class="fas fa-graduation-cap text-info mr-1"></i>
+      Al Orders</a>
+  </div>

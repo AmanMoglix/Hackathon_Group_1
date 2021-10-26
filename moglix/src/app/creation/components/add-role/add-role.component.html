@@ -1,0 +1,28 @@
+
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="dataForm">
+        <input type="text"  class="fadeIn second" formControlName="authority" 
+        [ngClass]="{'form-control form-control-lg':true,'is-invalid':error.authority}"
+        placeholder="enter rolename">
+        <div class="invalid-feedback d-block">{{error.authority}}</div>
+        <input type="submit"  (click)="logIn()"class="fadeIn fourth" 
+        value="Submit">
+      </form>
+    
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" [routerLink]="['/creation']" [queryParams]="{employeeId:11}">Add employee?</a>
+      </div>
+  
+    </div>
+  </div>

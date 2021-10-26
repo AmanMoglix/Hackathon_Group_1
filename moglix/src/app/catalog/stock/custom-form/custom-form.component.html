@@ -1,0 +1,25 @@
+<div class="dashboard">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <app-log-out></app-log-out>
+
+          <h1 class="display-4">Supplier Dashboard</h1>
+          <p class="lead text-muted"> </p>  
+        </div>
+        <div class="col-md-12">
+          <a  class="btn btn-light" [routerLink]="['/dashboard/agent/']" 
+    
+    skipLocationChange:true >Go Back</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12" *ngIf="formData">
+          <app-stock-form></app-stock-form>
+        </div>
+        <div *ngIf="dataTable">
+          <app-data-table></app-data-table>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="checkout">
+    <div class="checkout_left">
+        <div class="checkout_empty" *ngIf="getCartLenth() ==0 ">
+            <h2>Your Shopping Cart is Empty</h2>
+            <p>You have no items in your bucket</p>
+        </div>
+        <div class="checkout_not_empty" *ngIf="getCartLenth()!=0">
+            <p><strong>Shopping Cart</strong></p>
+            <!-- <app-checkout-product [checkout_products]="products" (deletedEvent)="deletedEventHandler($event)"></app-checkout-product> -->
+            <app-online-list [cart_products]="carts"></app-online-list>
+        </div>
+    </div>
+    <div class="checkout_right">
+        <!-- <app-checkout-subtottal></app-checkout-subtottal> -->
+        <!-- <app-checkout-address></app-checkout-address> -->
+    </div>
+</div>
